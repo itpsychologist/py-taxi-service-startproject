@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import Manufacturer, Driver, Car
+from taxi.models import Manufacturer, Driver, Car
 
 
 @admin.register(Manufacturer)
@@ -19,7 +19,6 @@ class DriverAdmin(UserAdmin):
         "is_staff",
     )
 
-    # Add the license_number field to the fieldsets for editing
     fieldsets = (
         (None, {"fields": ("username", "password")}),
         ("Personal info", {"fields": ("first_name", "last_name", "email")}),
@@ -42,7 +41,6 @@ class DriverAdmin(UserAdmin):
         ),  # Additional info category
     )
 
-    # Add the license_number field to the add_fieldset for adding new users
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
