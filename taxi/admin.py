@@ -10,14 +10,7 @@ class ManufacturerAdmin(admin.ModelAdmin):
 
 
 class DriverAdmin(UserAdmin):
-    list_display = (
-        "username",
-        "email",
-        "first_name",
-        "last_name",
-        "license_number",
-        "is_staff",
-    )
+    list_display = UserAdmin.list_display + ("license_number",)
 
     fieldsets = (
         (None, {"fields": ("username", "password")}),
